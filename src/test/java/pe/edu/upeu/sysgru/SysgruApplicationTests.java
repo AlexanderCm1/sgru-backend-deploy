@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import pe.edu.upeu.sysgru.dao.*;
 import pe.edu.upeu.sysgru.entity.CompetenciaLinea;
 import pe.edu.upeu.sysgru.entity.Pregunta;
+import pe.edu.upeu.sysgru.entity.Rubrica;
 import pe.edu.upeu.sysgru.sql.SqlInstrumento;
 import pe.edu.upeu.sysgru.sql.SqlPregunta;
 
@@ -38,6 +39,8 @@ class SysgruApplicationTests {
 	private PreguntaDao preguntaDao;
 	@Autowired
 	private ProyectoDao proyectoDao;
+	@Autowired
+	private RubricaDao rubricaDao;
 
 
 	SysgruApplicationTests() throws SQLException {
@@ -90,7 +93,13 @@ class SysgruApplicationTests {
 
 		 */
 		//System.out.println(preguntaDao.getPreguntasxins(424));
-		System.out.println(proyectoDao.getCursosxPy(1));
+		//System.out.println(proyectoDao.getCursosxPy(1));
+		/*
+		Rubrica rubrica = new Rubrica();
+		rubrica.setPy_carga_id(41);
+		rubrica.setPeso(20.0);
+		rubricaDao.createRubrica(rubrica);*/
+		System.out.println(rubricaDao.getRubricas(1));
 	}
 
 }
