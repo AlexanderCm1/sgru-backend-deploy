@@ -3,11 +3,18 @@ package pe.edu.upeu.sysgru.controller;
 
 import oracle.jdbc.proxy.annotation.Pre;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upeu.sysgru.entity.Pregunta;
 import pe.edu.upeu.sysgru.service.PreguntaService;
+import pe.edu.upeu.sysgru.sql.SqlInstrumento;
+import pe.edu.upeu.sysgru.sql.SqlPregunta;
 
+import javax.xml.ws.Response;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
@@ -35,4 +42,18 @@ public class PreguntaController {
         preguntas.put("preguntas",preguntaService.getPreguntasxins(id));
         return preguntas;
     }
+    @PostMapping()
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<SqlPregunta> createPregunta(@RequestBody SqlPregunta pregunta){
+        preguntaService.createPregunta(pregunta);
+        return new ResponseEntity<SqlPregunta>(pregunta,HttpStatus.CREATED);
+    }
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public ResponseEntity<SqlPregunta> updatePregunta(@PathVariable BigDecimal id, @RequestBody SqlPregunta pregunta){
+        pregunta.setPregunta_id(id);
+        preguntaService.updatePregunta(pregunta);
+        return new ResponseEntity<SqlPregunta>(pregunta,HttpStatus.ACCEPTED);
+    }
+
 }
