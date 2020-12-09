@@ -99,7 +99,9 @@ class SysgruApplicationTests {
 		rubrica.setPy_carga_id(41);
 		rubrica.setPeso(20.0);
 		rubricaDao.createRubrica(rubrica);*/
-		System.out.println(rubricaDao.getRubricas(1));
+		//System.out.println(rubricaDao.getRubricas(1));
+		//System.out.println(rubricaDao.getOnlyRubrica(81));
+		System.out.println(rubricaDao.getIndicador(21));
 	}
 
 }
