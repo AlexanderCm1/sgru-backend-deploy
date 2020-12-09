@@ -101,7 +101,10 @@ class SysgruApplicationTests {
 		rubricaDao.createRubrica(rubrica);*/
 		//System.out.println(rubricaDao.getRubricas(1));
 		//System.out.println(rubricaDao.getOnlyRubrica(81));
-		System.out.println(rubricaDao.getIndicador(21));
+		//System.out.println(rubricaDao.getIndicador(21));
+		//System.out.println(rubricaDao.getNivelesLogro());
+		//System.out.println(rubricaDao.getOnlyIndicador(21));
+		System.out.println(rubricaDao.getNivelRubrica(41));
 	}
 
 }
