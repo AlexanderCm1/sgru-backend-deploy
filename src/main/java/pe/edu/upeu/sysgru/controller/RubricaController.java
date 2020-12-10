@@ -78,6 +78,7 @@ public class RubricaController {
     public ResponseEntity<NivelRubrica> createNivelRubrica(@RequestBody NivelRubrica nivelRubrica){
         rubricaService.createNivelRubrica(nivelRubrica);
         return new ResponseEntity<>(nivelRubrica,HttpStatus.CREATED);
+        
     }
     @GetMapping("admin/{idpro}/{idpc}")
     public Map<String,List<Admin_v>> getVistaAdmin(@PathVariable int idpro,@PathVariable  int idpc){
