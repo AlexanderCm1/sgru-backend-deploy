@@ -110,7 +110,7 @@ class SysgruApplicationTests {
 		//System.out.println(rubricaDao.getNivelRubrica(41));
 		//System.out.println(alternativaDao.getAlternativas(170));
 		//System.out.println(preguntaDao.getPregunta(170));
-		System.out.println(rubricaDao.getVistaAdmin(1,41));
+		//System.out.println(rubricaDao.getVistaAdmin(1,41));
 
 		/*
 		SqlAlternativa alternativa = new SqlAlternativa();
@@ -120,6 +120,7 @@ class SysgruApplicationTests {
 		alternativaDao.createAlternativa(alternativa);
 
 		 */
+		System.out.println(proyectoDao.comoBuscar(1));
 	}
 
 }

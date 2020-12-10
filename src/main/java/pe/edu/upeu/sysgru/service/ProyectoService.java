@@ -8,4 +8,5 @@ import java.util.List;
 public interface ProyectoService {
     List<Proyecto> getProyecto(int id);
     List<Curso> getCursosxPy(int id);
+    List<Proyecto> comoBuscar(int id);
 }

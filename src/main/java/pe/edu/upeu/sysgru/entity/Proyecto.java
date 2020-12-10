@@ -16,4 +16,6 @@ public class Proyecto {
     private String lider;
     private String ciclo;
     private String semestre;
+
+
 }

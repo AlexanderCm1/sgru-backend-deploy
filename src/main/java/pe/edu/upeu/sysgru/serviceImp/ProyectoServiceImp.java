@@ -23,4 +23,9 @@ public class ProyectoServiceImp implements ProyectoService {
     public List<Curso> getCursosxPy(int id) {
         return proyectoDao.getCursosxPy(id);
     }
+
+    @Override
+    public List<Proyecto> comoBuscar(int id) {
+        return proyectoDao.comoBuscar(id);
+    }
 }
