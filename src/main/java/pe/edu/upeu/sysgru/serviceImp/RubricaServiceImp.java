@@ -59,4 +59,9 @@ public class RubricaServiceImp implements RubricaService {
     public List<NivelRubrica_v> getNivelRubrica(int id) {
         return rubricaDao.getNivelRubrica(id);
     }
+
+    @Override
+    public List<Admin_v> getVistaAdmin(int idpro, int idpc) {
+        return rubricaDao.getVistaAdmin(idpro,idpc);
+    }
 }

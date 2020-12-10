@@ -4,6 +4,8 @@ package pe.edu.upeu.sysgru.daoImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 import pe.edu.upeu.sysgru.dao.RubricaDao;
@@ -126,6 +128,19 @@ public class RubricaDaoImp implements RubricaDao {
                         .returningResultSet("OUT_NIVEL_RUBRICA",
                                 BeanPropertyRowMapper.newInstance(NivelRubrica_v.class));
         Map in = Collections.singletonMap("IDIN",id);
+        return simpleJdbcCall.executeObject(List.class,in);
+    }
+
+    @Override
+    public List<Admin_v> getVistaAdmin(int idpro, int idpc) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                        .withCatalogName("D_CRUD_HEARTH_SHAKER")
+                        .withProcedureName("SPP_GET_VISTA_ADMIN")
+                        .returningResultSet("OUT_VISTA_ADMIN",
+                                BeanPropertyRowMapper.newInstance(Admin_v.class));
+        SqlParameterSource in = new MapSqlParameterSource()
+                .addValue("IDPRO", idpro)
+                .addValue("IDPC",idpc);
         return simpleJdbcCall.executeObject(List.class,in);
     }
 

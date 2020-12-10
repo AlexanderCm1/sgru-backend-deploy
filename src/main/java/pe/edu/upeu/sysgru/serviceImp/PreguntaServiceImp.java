@@ -28,6 +28,11 @@ public class PreguntaServiceImp implements PreguntaService {
     }
 
     @Override
+    public Pregunta getPregunta(int id) {
+        return preguntaDao.getPregunta(id);
+    }
+
+    @Override
     public void createPregunta(SqlPregunta pregunta) {
          preguntaDao.createPregunta(pregunta);
     }

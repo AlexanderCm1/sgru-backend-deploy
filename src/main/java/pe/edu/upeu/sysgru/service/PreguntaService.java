@@ -9,6 +9,7 @@ import java.util.List;
 public interface PreguntaService {
     List<Pregunta> getPreguntas() throws SQLException;
     List<Pregunta> getPreguntasxins(int id) throws SQLException;
+    Pregunta getPregunta(int id);
     void createPregunta(SqlPregunta pregunta);
     void updatePregunta(SqlPregunta pregunta);
 }

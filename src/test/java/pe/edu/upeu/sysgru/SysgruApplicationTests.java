@@ -10,6 +10,7 @@ import pe.edu.upeu.sysgru.dao.*;
 import pe.edu.upeu.sysgru.entity.CompetenciaLinea;
 import pe.edu.upeu.sysgru.entity.Pregunta;
 import pe.edu.upeu.sysgru.entity.Rubrica;
+import pe.edu.upeu.sysgru.sql.SqlAlternativa;
 import pe.edu.upeu.sysgru.sql.SqlInstrumento;
 import pe.edu.upeu.sysgru.sql.SqlPregunta;
 
@@ -37,6 +38,8 @@ class SysgruApplicationTests {
 	private CicloDao cicloDao;
 	@Autowired
 	private PreguntaDao preguntaDao;
+	@Autowired
+	private AlternativaDao alternativaDao;
 	@Autowired
 	private ProyectoDao proyectoDao;
 	@Autowired
@@ -104,7 +107,19 @@ class SysgruApplicationTests {
 		//System.out.println(rubricaDao.getIndicador(21));
 		//System.out.println(rubricaDao.getNivelesLogro());
 		//System.out.println(rubricaDao.getOnlyIndicador(21));
-		System.out.println(rubricaDao.getNivelRubrica(41));
+		//System.out.println(rubricaDao.getNivelRubrica(41));
+		//System.out.println(alternativaDao.getAlternativas(170));
+		//System.out.println(preguntaDao.getPregunta(170));
+		System.out.println(rubricaDao.getVistaAdmin(1,41));
+
+		/*
+		SqlAlternativa alternativa = new SqlAlternativa();
+		alternativa.setPregunta_id(BigDecimal.valueOf(170));
+		alternativa.setCorrecta_stado("Y");
+		alternativa.setNombre("choclito xxdxdxd");
+		alternativaDao.createAlternativa(alternativa);
+
+		 */
 	}
 
 }

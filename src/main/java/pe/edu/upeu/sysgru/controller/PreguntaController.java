@@ -42,6 +42,17 @@ public class PreguntaController {
         preguntas.put("preguntas",preguntaService.getPreguntasxins(id));
         return preguntas;
     }
+
+    @GetMapping("detail/{id}")
+    public Map<String,Pregunta> getPregunta(@PathVariable int id){
+        Map<String,Pregunta> pregunta = new HashMap<>();
+        pregunta.put("pregunta", preguntaService.getPregunta(id));
+        return pregunta;
+    }
+
+
+
+
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<SqlPregunta> createPregunta(@RequestBody SqlPregunta pregunta){

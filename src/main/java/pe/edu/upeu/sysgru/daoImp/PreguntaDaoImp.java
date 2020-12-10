@@ -7,6 +7,7 @@ import oracle.sql.ARRAY;
 import oracle.sql.STRUCT;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jdbc.support.oracle.SqlReturnArray;
+import org.springframework.data.jdbc.support.oracle.SqlReturnStruct;
 import org.springframework.data.jdbc.support.oracle.SqlStructValue;
 import org.springframework.jdbc.core.*;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
@@ -100,6 +101,18 @@ public class PreguntaDaoImp implements PreguntaDao {
 
 
         return preguntas;
+    }
+
+    @Override
+    public Pregunta getPregunta(int id) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                        .withCatalogName("D_CRUD_PREGUNTAS")
+                        .withFunctionName("FUN_GET_PREGUNTA")
+                        .declareParameters(
+                            new SqlOutParameter("V_PREGUNTA",OracleTypes.STRUCT,"D_CRUD_PREGUNTAS.PREGUNTA_TYPE",
+                                    new SqlReturnStruct(Pregunta.class)));
+        Map in = Collections.singletonMap("IN_PREGUNTA_ID",id);
+        return simpleJdbcCall.executeFunction(Pregunta.class,in);
     }
 
     @Override

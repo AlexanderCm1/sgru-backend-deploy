@@ -15,5 +15,6 @@ public interface RubricaDao {
     List<Indicador> getOnlyIndicador(int id);
     List<NivelesLogro> getNivelesLogro();
     List<NivelRubrica_v> getNivelRubrica(int id);
+    List<Admin_v> getVistaAdmin(int idpro,int idpc);
 
 }
