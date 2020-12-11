@@ -35,14 +35,14 @@ public class ProyectoController {
         return proyectos;
     }
 
-    @GetMapping("union/{idsem}/{idpro}")
-    public ArrayList getUnion(@PathVariable int idsem,@PathVariable int idpro){
+    @GetMapping("union/{id}")
+    public ArrayList getUnion(@PathVariable int id){
         Prueba prueba = new Prueba();
         Map<String,List<Proyecto>> proyecto = new HashMap<>();
         Map<String,List<Curso>> cursos = new HashMap<>();
-        proyecto.put("proyecto",proyectoService.getProyecto(idsem));
+        proyecto.put("proyecto",proyectoService.comoBuscar(id));
         prueba.setProyecto(proyecto);
-        cursos.put("cursos",proyectoService.getCursosxPy(idpro));
+        cursos.put("cursos",proyectoService.getCursosxPy(id));
         prueba.setCursos(cursos);
         ArrayList loba = new ArrayList();
         loba.add(proyecto);
