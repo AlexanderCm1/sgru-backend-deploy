@@ -8,6 +8,7 @@ import pe.edu.upeu.sysgru.entity.Proyecto;
 import pe.edu.upeu.sysgru.entity.Prueba;
 import pe.edu.upeu.sysgru.service.ProyectoService;
 
+import java.sql.Array;
 import java.util.*;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -34,17 +35,21 @@ public class ProyectoController {
         return proyectos;
     }
 
-    @GetMapping("union/{id}")
-    public Prueba getUnion(@PathVariable int id){
+    @GetMapping("union/{idsem}/{idpro}")
+    public ArrayList getUnion(@PathVariable int idsem,@PathVariable int idpro){
         Prueba prueba = new Prueba();
         Map<String,List<Proyecto>> proyecto = new HashMap<>();
         Map<String,List<Curso>> cursos = new HashMap<>();
-        proyecto.put("proyecto",proyectoService.comoBuscar(id));
+        proyecto.put("proyecto",proyectoService.getProyecto(idsem));
         prueba.setProyecto(proyecto);
-        cursos.put("cursos",proyectoService.getCursosxPy(id));
+        cursos.put("cursos",proyectoService.getCursosxPy(idpro));
         prueba.setCursos(cursos);
+        ArrayList loba = new ArrayList();
+        loba.add(proyecto);
+        loba.add(cursos);
 
-        return  prueba;
+
+        return  loba;
     }
 
 
