@@ -120,7 +120,8 @@ class SysgruApplicationTests {
 		alternativaDao.createAlternativa(alternativa);
 
 		 */
-		System.out.println(proyectoDao.comoBuscar(1));
+		System.out.println(alternativaDao.getAlternativas(173));
+		//System.out.println(proyectoDao.comoBuscar(1));
 	}
 
 }

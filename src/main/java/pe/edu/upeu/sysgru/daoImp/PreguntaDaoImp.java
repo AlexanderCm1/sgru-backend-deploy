@@ -48,27 +48,7 @@ public class PreguntaDaoImp implements PreguntaDao {
         List<Pregunta> preguntas = new ArrayList<>();
 
         Array oracleObjectArray = (Array) out.get("OUT_PREGUNTAS");
-        Object[] objArray = (Object[]) oracleObjectArray.getArray();
-        for (int i = 0;i<objArray.length;i++){
-            Struct st= (Struct)objArray[i];
-            Object[] obj = st.getAttributes();
-
-
-
-            Pregunta pregunta = new Pregunta();
-            pregunta.setPregunta_id((BigDecimal) obj[0]);
-            pregunta.setInstrumento_id((BigDecimal) obj[1]);
-            pregunta.setNombre(this.convert((Clob) obj[2]));
-            pregunta.setPeso((BigDecimal) obj[3]);
-            pregunta.setEstado((String) obj[4]);
-
-
-            preguntas.add(pregunta);
-        }
-
-
-
-        return preguntas;
+        return getPreguntas(preguntas, oracleObjectArray);
     }
 
     @Override
@@ -83,6 +63,10 @@ public class PreguntaDaoImp implements PreguntaDao {
         List<Pregunta> preguntas = new ArrayList<>();
 
         Array oracleObjectArray = (Array) out.get("OUT_PREGUNTAS_INS");
+        return getPreguntas(preguntas, oracleObjectArray);
+    }
+
+    private List<Pregunta> getPreguntas(List<Pregunta> preguntas, Array oracleObjectArray) throws SQLException {
         Object[] objArray = (Object[]) oracleObjectArray.getArray();
         for (int i = 0;i<objArray.length;i++){
             Struct st = (Struct) objArray[i];
