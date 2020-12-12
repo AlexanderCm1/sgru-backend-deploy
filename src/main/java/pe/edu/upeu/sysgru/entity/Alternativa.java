@@ -17,7 +17,7 @@ import java.math.BigInteger;
 public class Alternativa {
     private BigDecimal alternativa_id;
     private BigDecimal pregunta_id;
-    private String correcta_stado;
+    private String correcta_estado;
     private String nombre;
 }
 

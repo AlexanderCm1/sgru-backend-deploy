@@ -17,7 +17,7 @@ public class SqlAlternativa extends Alternativa implements SQLData {
     public void readSQL(SQLInput sqlInput, String string) throws SQLException {
         setAlternativa_id(sqlInput.readBigDecimal());
         setPregunta_id(sqlInput.readBigDecimal());
-        setCorrecta_stado(sqlInput.readString());
+        setCorrecta_estado(sqlInput.readString());
         setNombre(sqlInput.readString());
 
     }
@@ -26,7 +26,7 @@ public class SqlAlternativa extends Alternativa implements SQLData {
     public void writeSQL(SQLOutput sqlOutput) throws SQLException {
        sqlOutput.writeBigDecimal(getAlternativa_id());
        sqlOutput.writeBigDecimal(getPregunta_id());
-       sqlOutput.writeString(getCorrecta_stado());
+       sqlOutput.writeString(getCorrecta_estado());
        sqlOutput.writeString(getNombre());
     }
 
