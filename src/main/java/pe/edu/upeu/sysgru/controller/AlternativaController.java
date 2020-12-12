@@ -3,10 +3,7 @@ package pe.edu.upeu.sysgru.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pe.edu.upeu.sysgru.entity.Alternativa;
 import pe.edu.upeu.sysgru.entity.Pregunta;
 import pe.edu.upeu.sysgru.service.AlternativaService;
@@ -15,6 +12,9 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 
 @RestController
 @RequestMapping(value = "/api/alternativa", produces = MediaType.APPLICATION_JSON_VALUE)
