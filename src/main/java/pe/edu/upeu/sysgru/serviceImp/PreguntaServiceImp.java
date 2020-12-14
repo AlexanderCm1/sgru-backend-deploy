@@ -7,6 +7,7 @@ import pe.edu.upeu.sysgru.entity.Pregunta;
 import pe.edu.upeu.sysgru.service.PreguntaService;
 import pe.edu.upeu.sysgru.sql.SqlPregunta;
 
+import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -28,17 +29,22 @@ public class PreguntaServiceImp implements PreguntaService {
     }
 
     @Override
-    public Pregunta getPregunta(int id) {
+    public Pregunta getPregunta(BigDecimal id) {
         return preguntaDao.getPregunta(id);
     }
 
     @Override
-    public void createPregunta(SqlPregunta pregunta) {
-         preguntaDao.createPregunta(pregunta);
+    public BigDecimal createPregunta(SqlPregunta pregunta) {
+        return preguntaDao.createPregunta(pregunta);
     }
 
     @Override
     public void updatePregunta(SqlPregunta pregunta) {
         preguntaDao.updatePregunta(pregunta);
+    }
+
+    @Override
+    public void deletePregunta(int id) {
+        preguntaDao.deletePregunta(id);
     }
 }

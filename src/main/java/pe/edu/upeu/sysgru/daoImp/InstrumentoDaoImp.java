@@ -92,4 +92,17 @@ public class InstrumentoDaoImp implements InstrumentoDao {
         return  simpleJdbcCall.executeObject(List.class,in);
     }
 
+    @Override
+    public void deleteInstrumento(int id) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                            .withCatalogName("D_CRUD_INSTRUMENTO")
+                            .withProcedureName("SPP_DELETE_INSTRUMENTO_PREGUNTA_INSTRUMENTO")
+                            .declareParameters(
+                              new SqlParameter("IN_INSTRUMENTO_ID",OracleTypes.NUMBER)
+                            );
+        Map in = Collections.singletonMap("IN_INSTRUMENTO_ID",id);
+
+        simpleJdbcCall.execute(in);
+    }
+
 }

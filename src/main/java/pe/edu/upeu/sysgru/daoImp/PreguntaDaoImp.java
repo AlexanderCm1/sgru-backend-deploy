@@ -88,7 +88,7 @@ public class PreguntaDaoImp implements PreguntaDao {
     }
 
     @Override
-    public Pregunta getPregunta(int id) {
+    public Pregunta getPregunta(BigDecimal id) {
         simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
                         .withCatalogName("D_CRUD_PREGUNTAS")
                         .withFunctionName("FUN_GET_PREGUNTA")
@@ -100,15 +100,18 @@ public class PreguntaDaoImp implements PreguntaDao {
     }
 
     @Override
-    public void createPregunta(SqlPregunta pregunta) {
+    public BigDecimal createPregunta(SqlPregunta pregunta) {
         simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
                         .withCatalogName("D_CRUD_PREGUNTAS")
                         .withProcedureName("SPP_CREATE_PREGUNTA")
                         .declareParameters(
-                         new SqlParameter("IN_PREGUNTA",OracleTypes.STRUCT,"D_CRUD_PREGUNTAS.PREGUNTAS_TYPE"));
+                         new SqlParameter("IN_PREGUNTA",OracleTypes.STRUCT,"D_CRUD_PREGUNTAS.PREGUNTAS_TYPE"),
+                                new SqlOutParameter("OUT_PREGUNTA_ID",OracleTypes.NUMBER));
 
         Map in = Collections.singletonMap("IN_PREGUNTA",pregunta);
-        simpleJdbcCall.execute(in);
+        Map<?,?> out = simpleJdbcCall.execute(in);
+        BigDecimal id = (BigDecimal) out.get("OUT_PREGUNTA_ID");
+        return id;
     }
 
     @Override
@@ -120,6 +123,18 @@ public class PreguntaDaoImp implements PreguntaDao {
                                      new SqlParameter("P_PREGUNTA",OracleTypes.STRUCT,"D_CRUD_PREGUNTAS.PREGUNTAS_TYPE"));
             Map in = Collections.singletonMap("IN_PREGUNTA",pregunta);
             simpleJdbcCall.execute(in);
+    }
+
+    @Override
+    public void deletePregunta(int id) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                            .withCatalogName("D_CRUD_PREGUNTAS")
+                            .withProcedureName("SPP_DELETE_PREGUNTA_ALTERNATIVA")
+                        .declareParameters(
+                                new SqlParameter("IN_PREGUNTA_ID",OracleTypes.NUMBER)
+                        );
+        Map in = Collections.singletonMap("IN_PREGUNTA_ID",id);
+        simpleJdbcCall.execute(in);
     }
 
     public String convert(Clob clob) throws SQLException {

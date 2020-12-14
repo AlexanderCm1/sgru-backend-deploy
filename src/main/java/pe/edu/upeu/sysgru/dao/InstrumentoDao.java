@@ -14,4 +14,5 @@ public interface InstrumentoDao {
     Instrumento getInstrumento(int id) throws SQLException;
     List<Instrumento> getInstrumentos();
     List<Instrumento> getInstrumentosxsem(int id);
+    void deleteInstrumento(int id);
 }

@@ -12,6 +12,7 @@ import pe.edu.upeu.sysgru.entity.Pregunta;
 import pe.edu.upeu.sysgru.service.AlternativaService;
 import pe.edu.upeu.sysgru.sql.SqlAlternativa;
 
+import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
@@ -36,6 +37,20 @@ public class AlternativaController {
     public ResponseEntity<SqlAlternativa> createAlternativa(@RequestBody SqlAlternativa alternativa){
         alternativaService.createAlternativa(alternativa);
         return new ResponseEntity<SqlAlternativa>(alternativa, HttpStatus.CREATED);
+    }
+    @PutMapping("{id}")
+    public ResponseEntity<SqlAlternativa> updateAlternativa(@PathVariable int id, @RequestBody SqlAlternativa alternativa){
+        alternativa.setAlternativa_id(BigDecimal.valueOf(id));
+        alternativaService.updateAlternativa(alternativa);
+        return new ResponseEntity<>(alternativa,HttpStatus.ACCEPTED);
+    }
+    @DeleteMapping("{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Map<String,String> deleteAlternativa(@PathVariable int id){
+        Map<String,String> message = new HashMap<>();
+        alternativaService.deleteAlternativa(id);
+        message.put("message","eliminado");
+        return message;
     }
 
 }

@@ -46,6 +46,18 @@ public class AlternativaDaoImp implements AlternativaDao {
     }
 
     @Override
+    public void updateAlternativa(SqlAlternativa alternativa) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                        .withCatalogName(CATALOG_NAME)
+                        .withProcedureName("SPP_UPDATE_ALTERNATIVA")
+                        .declareParameters(
+                          new SqlParameter("P_ALTERNATIVA", OracleTypes.STRUCT,"D_CRUD_ALTERNATIVAS.ALTERNATIVA_TYPE")
+                        );
+        Map in = Collections.singletonMap("IN_ALTERNATIVA",alternativa);
+        simpleJdbcCall.execute(in);
+    }
+
+    @Override
     public List<Alternativa> getAlternativas(int id) throws SQLException {
         simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
                         .withCatalogName(CATALOG_NAME)
@@ -74,6 +86,19 @@ public class AlternativaDaoImp implements AlternativaDao {
         }
         return alternativas;
     }
+
+    @Override
+    public void deleteAlternativa(int id) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                        .withCatalogName(CATALOG_NAME)
+                        .withProcedureName("SPP_DELETE_ALTERNATIVA")
+                        .declareParameters(
+                            new SqlParameter("IN_ALTERNATIVA_ID", OracleTypes.NUMBER)
+                        );
+        Map in = Collections.singletonMap("IN_ALTERNATIVA_ID",id);
+        simpleJdbcCall.execute(in);
+    }
+
     public String convert(Clob clob) throws SQLException {
 
         return Math.toIntExact(clob.length()) == 0 //

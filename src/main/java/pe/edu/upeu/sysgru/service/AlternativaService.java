@@ -8,5 +8,7 @@ import java.util.List;
 
 public interface AlternativaService {
     void createAlternativa(SqlAlternativa alternativa);
+    void updateAlternativa(SqlAlternativa alternativa);
     List<Alternativa> getAlternativas(int id) throws SQLException;
+    void deleteAlternativa(int id);
 }

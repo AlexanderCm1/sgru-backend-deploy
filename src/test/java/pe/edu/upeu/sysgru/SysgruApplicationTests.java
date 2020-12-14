@@ -6,6 +6,7 @@ import oracle.sql.CLOB;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.jdbc.Sql;
 import pe.edu.upeu.sysgru.dao.*;
 import pe.edu.upeu.sysgru.entity.CompetenciaLinea;
 import pe.edu.upeu.sysgru.entity.Pregunta;
@@ -115,13 +116,23 @@ class SysgruApplicationTests {
 		/*
 		SqlAlternativa alternativa = new SqlAlternativa();
 		alternativa.setPregunta_id(BigDecimal.valueOf(170));
-		alternativa.setCorrecta_stado("Y");
+		alternativa.setCorrecta_estado("Y");
 		alternativa.setNombre("choclito xxdxdxd");
 		alternativaDao.createAlternativa(alternativa);
 
 		 */
-		System.out.println(alternativaDao.getAlternativas(173));
+		//System.out.println(alternativaDao.getAlternativas(173));
 		//System.out.println(proyectoDao.comoBuscar(1));
+		/*
+		SqlAlternativa alternativa = new SqlAlternativa();
+		alternativa.setPregunta_id(BigDecimal.valueOf(321));
+		alternativa.setNombre("PROBANDO UPDATE");
+		alternativa.setCorrecta_estado("N");
+		alternativa.setAlternativa_id(BigDecimal.valueOf(167));
+		alternativaDao.updateAlternativa(alternativa);*/
+		//alternativaDao.deleteAlternativa(301);
+		//instrumentoDao.deleteInstrumento(447);
+		preguntaDao.deletePregunta(447);
 	}
 
 }

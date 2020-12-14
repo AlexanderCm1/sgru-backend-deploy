@@ -21,13 +21,6 @@ public class ProyectoController {
     @Autowired
     private ProyectoService proyectoService;
 
-
-
-
-
-
-
-
     @GetMapping("/{id}")
     public Map<String, List<Proyecto>> getProyectos(@PathVariable int id){
         Map<String,List<Proyecto>> proyectos = new HashMap<>();

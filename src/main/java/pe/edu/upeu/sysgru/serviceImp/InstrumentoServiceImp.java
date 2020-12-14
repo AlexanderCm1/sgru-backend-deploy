@@ -43,4 +43,9 @@ public class InstrumentoServiceImp implements InstrumentoService {
     public List<Instrumento> getInstrumentosxsem(int id) {
         return instrumentoDao.getInstrumentosxsem(id);
     }
+
+    @Override
+    public void deleteInstrumento(int id) {
+        instrumentoDao.deleteInstrumento(id);
+    }
 }

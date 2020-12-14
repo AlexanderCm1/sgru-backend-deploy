@@ -23,7 +23,17 @@ public class AlternativaServiceImp implements AlternativaService {
     }
 
     @Override
+    public void updateAlternativa(SqlAlternativa alternativa) {
+        alternativaDao.updateAlternativa(alternativa);
+    }
+
+    @Override
     public List<Alternativa> getAlternativas(int id) throws SQLException {
         return alternativaDao.getAlternativas(id);
+    }
+
+    @Override
+    public void deleteAlternativa(int id) {
+        alternativaDao.deleteAlternativa(id);
     }
 }

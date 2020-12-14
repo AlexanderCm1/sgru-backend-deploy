@@ -69,5 +69,13 @@ public class InstrumentoController {
         instrumentoxsem.put("instrumentos",instrumentoService.getInstrumentosxsem(id));
         return instrumentoxsem;
     }
+    @DeleteMapping("{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Map<String,String> deleteInstrumento(@PathVariable int id){
+        Map<String,String> message = new HashMap<>();
+        instrumentoService.deleteInstrumento(id);
+        message.put("message","eliminado");
+        return message;
+    }
 
 }

@@ -44,21 +44,20 @@ public class PreguntaController {
     }
 
     @GetMapping("detail/{id}")
-    public Map<String,Pregunta> getPregunta(@PathVariable int id){
+    public Map<String,Pregunta> getPregunta(@PathVariable BigDecimal id){
         Map<String,Pregunta> pregunta = new HashMap<>();
         pregunta.put("pregunta", preguntaService.getPregunta(id));
         return pregunta;
     }
 
-
-
-
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<SqlPregunta> createPregunta(@RequestBody SqlPregunta pregunta){
-        preguntaService.createPregunta(pregunta);
-        return new ResponseEntity<SqlPregunta>(pregunta,HttpStatus.CREATED);
+        pregunta.setPregunta_id(preguntaService.createPregunta(pregunta));
+        return new ResponseEntity<>(pregunta,HttpStatus.CREATED);
     }
+
+
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public ResponseEntity<SqlPregunta> updatePregunta(@PathVariable BigDecimal id, @RequestBody SqlPregunta pregunta){
@@ -66,5 +65,12 @@ public class PreguntaController {
         preguntaService.updatePregunta(pregunta);
         return new ResponseEntity<SqlPregunta>(pregunta,HttpStatus.ACCEPTED);
     }
-
+    @DeleteMapping("{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Map<String,String> deletePregunta(@PathVariable int id){
+        preguntaService.deletePregunta(id);
+        Map<String,String> message = new HashMap<>();
+        message.put("message","eliminado");
+        return message;
+    }
 }
