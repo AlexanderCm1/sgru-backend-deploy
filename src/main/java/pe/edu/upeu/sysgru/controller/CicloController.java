@@ -17,7 +17,7 @@ import java.util.Map;
 @RestController
 @RequestMapping(value = "/api/ciclo", produces = MediaType.APPLICATION_JSON_VALUE)
 public class CicloController {
-    
+
     @Autowired
     private CicloService cicloService;
 
