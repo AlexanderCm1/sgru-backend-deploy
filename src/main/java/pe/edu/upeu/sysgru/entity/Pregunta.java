@@ -16,9 +16,10 @@ import java.math.BigDecimal;
 public class Pregunta {
     private BigDecimal pregunta_id;
     private BigDecimal instrumento_id;
-    private String nombre;
     private BigDecimal peso;
     private String estado;
+    private String nombre;
+
 }
 
 

@@ -133,7 +133,8 @@ class SysgruApplicationTests {
 		//alternativaDao.deleteAlternativa(301);
 		//instrumentoDao.deleteInstrumento(447);
 		//preguntaDao.deletePregunta(447);
-		preguntaDao.getPreguntasxins(546);
+		//preguntaDao.getPreguntasxins(546);
+		preguntaDao.getPregunta(BigDecimal.valueOf(503));
 	}
 
 }
