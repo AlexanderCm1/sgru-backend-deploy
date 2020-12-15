@@ -27,18 +27,18 @@ public class SqlPregunta extends Pregunta implements SQLData {
     public void readSQL(SQLInput sqlInput, String string) throws SQLException {
             setPregunta_id(sqlInput.readBigDecimal());
             setInstrumento_id(sqlInput.readBigDecimal());
-            setNombre(sqlInput.readString());
             setPeso(sqlInput.readBigDecimal());
             setEstado(sqlInput.readString());
+            setNombre(sqlInput.readString());
     }
 
     @Override
     public void writeSQL(SQLOutput sqlOutput) throws SQLException {
             sqlOutput.writeBigDecimal(getPregunta_id());
             sqlOutput.writeBigDecimal(getInstrumento_id());
-            sqlOutput.writeString(getNombre());
             sqlOutput.writeBigDecimal(getPeso());
             sqlOutput.writeString(getEstado());
+            sqlOutput.writeString(getNombre());
     }
 
     public String clobToString(Clob data) {
