@@ -75,9 +75,9 @@ public class PreguntaDaoImp implements PreguntaDao {
             Pregunta pregunta = new Pregunta();
             pregunta.setPregunta_id((BigDecimal) obj[0]);
             pregunta.setInstrumento_id((BigDecimal) obj[1]);
-            pregunta.setNombre((String) obj[2]);
-            pregunta.setPeso((BigDecimal) obj[3]);
-            pregunta.setEstado((String) obj[4]);
+            pregunta.setNombre((String) obj[4]);
+            pregunta.setPeso((BigDecimal) obj[2]);
+            pregunta.setEstado((String) obj[3]);
 
 
             preguntas.add(pregunta);

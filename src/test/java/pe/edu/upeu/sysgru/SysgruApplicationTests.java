@@ -132,7 +132,8 @@ class SysgruApplicationTests {
 		alternativaDao.updateAlternativa(alternativa);*/
 		//alternativaDao.deleteAlternativa(301);
 		//instrumentoDao.deleteInstrumento(447);
-		preguntaDao.deletePregunta(447);
+		//preguntaDao.deletePregunta(447);
+		preguntaDao.getPreguntasxins(546);
 	}
 
 }
