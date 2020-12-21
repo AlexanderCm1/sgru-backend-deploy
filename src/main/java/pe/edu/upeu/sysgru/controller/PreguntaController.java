@@ -56,7 +56,7 @@ public class PreguntaController {
         pregunta.setPregunta_id(preguntaService.createPregunta(pregunta));
         return new ResponseEntity<>(pregunta,HttpStatus.CREATED);
     }
-    
+
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public ResponseEntity<SqlPregunta> updatePregunta(@PathVariable BigDecimal id, @RequestBody SqlPregunta pregunta){

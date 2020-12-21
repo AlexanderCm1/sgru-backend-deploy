@@ -79,7 +79,7 @@ public class AlternativaDaoImp implements AlternativaDao {
             alternativa.setAlternativa_id((BigDecimal) obj[0]);
             alternativa.setPregunta_id((BigDecimal) obj[1]);
             alternativa.setCorrecta_estado((String) obj[2]);
-            alternativa.setNombre(convert((Clob) obj[3]));
+            alternativa.setNombre((String) obj[3]);
 
 
             alternativas.add(alternativa);
