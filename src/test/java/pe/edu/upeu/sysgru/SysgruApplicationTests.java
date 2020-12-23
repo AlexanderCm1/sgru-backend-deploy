@@ -45,6 +45,8 @@ class SysgruApplicationTests {
 	private ProyectoDao proyectoDao;
 	@Autowired
 	private RubricaDao rubricaDao;
+	@Autowired
+	private ResultadoDao resultadoDao;
 
 
 	SysgruApplicationTests() throws SQLException {
@@ -134,7 +136,10 @@ class SysgruApplicationTests {
 		//instrumentoDao.deleteInstrumento(447);
 		//preguntaDao.deletePregunta(447);
 		//preguntaDao.getPreguntasxins(546);
-		preguntaDao.getPregunta(BigDecimal.valueOf(503));
+		//preguntaDao.getPregunta(BigDecimal.valueOf(503));
+		//System.out.println(resultadoDao.getConf_py(101));
+		System.out.println(resultadoDao.getConf_evaluacion(1));
+
 	}
 
 }
