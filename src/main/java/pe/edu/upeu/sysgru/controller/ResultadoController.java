@@ -27,10 +27,10 @@ public class ResultadoController {
         estudiantes.put("estudiantes", resultadoService.getEstudiante());
         return estudiantes;
     }
-    @GetMapping("{id}")
-    public Map<String,List<Conf_py>> getConf_py(@PathVariable int id){
+    @GetMapping("{nombre}")
+    public Map<String,List<Conf_py>> getConf_py(@PathVariable String nombre){
         Map<String,List<Conf_py>> conf_py = new HashMap<>();
-        conf_py.put("conf_py",resultadoService.getConf_py(id));
+        conf_py.put("conf_py",resultadoService.getConf_py(nombre));
         return conf_py;
     }
     @GetMapping("conf_eva/{id}")

@@ -24,8 +24,8 @@ public class ResultadoServiceImp implements ResultadoService {
     }
 
     @Override
-    public List<Conf_py> getConf_py(int id) {
-        return resultadoDao.getConf_py(id);
+    public List<Conf_py> getConf_py(String nombre) {
+        return resultadoDao.getConf_py(nombre);
     }
 
     @Override

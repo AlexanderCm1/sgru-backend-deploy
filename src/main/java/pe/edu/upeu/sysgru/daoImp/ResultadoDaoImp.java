@@ -38,13 +38,13 @@ public class ResultadoDaoImp implements ResultadoDao {
     }
 
     @Override
-    public List<Conf_py> getConf_py(int id) {
+    public List<Conf_py> getConf_py(String  nombre) {
         simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
                         .withCatalogName(CATALOG_NAME)
                         .withProcedureName("SPP_GET_CONF_PY")
                         .returningResultSet("OUT_CONF_PY",
                                 BeanPropertyRowMapper.newInstance(Conf_py.class));
-        Map in = Collections.singletonMap("IN_SEMESTRE",id);
+        Map in = Collections.singletonMap("IN_SEMESTRE",nombre);
         return simpleJdbcCall.executeObject(List.class,in);
     }
 
