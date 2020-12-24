@@ -1,6 +1,6 @@
-#spring:
-#  datasource:
-#    url: jdbc:oracle:thin:@3.229.119.112:1521/orcl
-#    username: sgru
-#    password: Rubricas1
-#    driver-class-name: oracle.jdbc.driver.OracleDriver
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@3.229.119.112:1521/orcl
+    username: sgru
+    password: Rubricas1
+    driver-class-name: oracle.jdbc.driver.OracleDriver
